@@ -16,7 +16,7 @@ export class List<T> implements IList<T> {
         let isExists = false;
         this.forEach((element: T) => {
             if (typeof element === "object") {
-                isExists = JSON.stringify(element) ===  JSON.stringify(item) && !isExists
+                isExists = JSON.stringify(element) === JSON.stringify(item) && !isExists
 
             } else {
                 isExists = element === item && !isExists
@@ -72,7 +72,7 @@ export class List<T> implements IList<T> {
     sort(this: T[]): void {
         throw new Error("Method not implemented.");
     }
-    trueForAll(predicate: (item: T)     boolean): boolean {
+    trueForAll(predicate: (item: T) => boolean): boolean {
         throw new Error("Method not implemented.");
     }
     remove(item: T): boolean {
