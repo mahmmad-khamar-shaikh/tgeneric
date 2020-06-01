@@ -57,7 +57,7 @@ export class List<T> implements IList<T> {
     lastIndexOf(item: T): number {
         throw new Error("Method not implemented.");
     }
-    removeAll(predicate: (item: T)     boolean): number {
+    removeAll(predicate: (item: T)   =>  boolean): number {
         throw new Error("Method not implemented.");
     }
     removeAtt(index: number): void {
