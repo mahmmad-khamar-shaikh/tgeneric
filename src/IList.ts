@@ -2,7 +2,7 @@ export interface IList<T> {
     count(): number;
     add(item: T): void;
     addRange(range: T[]): void;
-    clear(): void;
+    clear(): T[];
     contains(item: T): boolean;
     exists(predicate: (item: T) => boolean): boolean;
     find(predicate: (item: T) => boolean): T;
