@@ -24,8 +24,8 @@ export class List<T> implements IList<T> {
         });
         return isExists;
     }
-    exists(predicate: (item: T) => boolean): boolean {
-        throw new Error("Method not implemented.");
+    exists(this: T[], predicate: (item: T) => boolean): boolean {
+        return this.filter(predicate).length > 0;
     }
     find(predicate: (item: T) => boolean): T {
         throw new Error("Method not implemented.");
@@ -57,7 +57,7 @@ export class List<T> implements IList<T> {
     lastIndexOf(item: T): number {
         throw new Error("Method not implemented.");
     }
-    removeAll(predicate: (item: T)   =>  boolean): number {
+    removeAll(predicate: (item: T) => boolean): number {
         throw new Error("Method not implemented.");
     }
     removeAtt(index: number): void {
