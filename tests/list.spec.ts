@@ -1,24 +1,22 @@
-import '../src/index';
-class Person {
-    id: number;
-    name: string;
+import { IList, List } from '../src/index';
+class Heoros {
+    Name: string;
+    Alias: string;
+    SuperStrength: number;
 }
 
+
 describe("Typescript Generic List  ", () => {
-    var numericArray: Array<number>;
+    var testList: IList<number>;
     beforeEach(() => {
-        numericArray = new Array<number>();
-        numericArray.push(3);
-        numericArray.push(100);
-        numericArray.push(2);
-        numericArray.push(10);
-        numericArray.push(4);
+        testList = new List<number>();
     });
     it("Should initialized array with no items", () => {
-        expect(numericArray).toBeDefined();
-    })
-    it("Should initialized array with 5 items", () => {
-        expect(numericArray.length).toBe(5);
-    })
+        expect(testList).toBeDefined();
+    });
+    it("Should add item to array with", () => {
+        testList.add(1);
+        expect(testList.count()).toBe(1);
+    });
 });
 
