@@ -5,16 +5,16 @@ export class List<T> implements IList<T> {
     constructor() {
         this.list = new Array<T>();
     }
-    addRange(range: T[]): void {
+    addRange = (range: T[]): void => {
         throw new Error("Method not implemented.");
-    }
-    clear(this: T[]): T[] {
-        this.splice(0, this.length);
-        return this;
-    }
-    contains(this: T[], item: T): boolean {
+    };
+    clear = (): T[] => {
+        this.list.splice(0, this.list.length);
+        return this.list;
+    };
+    contains = (item: T): boolean => {
         let isExists = false;
-        this.forEach((element: T) => {
+        this.list.forEach((element: T) => {
             if (typeof element === "object") {
                 isExists = JSON.stringify(element) === JSON.stringify(item) && !isExists
 
@@ -23,7 +23,7 @@ export class List<T> implements IList<T> {
             }
         });
         return isExists;
-    }
+    };
     exists(this: T[], predicate: (item: T) => boolean): boolean {
         return this.filter(predicate).length > 0;
     }
@@ -78,9 +78,9 @@ export class List<T> implements IList<T> {
     remove(item: T): boolean {
         throw new Error("Method not implemented.");
     }
-    count(): number {
+    count = (): number => {
         return this.list.length;
-    }
+    };
 
     toList(): T[] {
         throw new Error("Method not implemented.");

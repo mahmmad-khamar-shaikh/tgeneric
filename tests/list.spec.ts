@@ -4,8 +4,6 @@ class Heoros {
     Alias: string;
     SuperStrength: number;
 }
-
-
 describe("Typescript Generic List  ", () => {
     var testList: IList<number>;
     beforeEach(() => {
@@ -17,6 +15,12 @@ describe("Typescript Generic List  ", () => {
     it("Should add item to array with", () => {
         testList.add(1);
         expect(testList.count()).toBe(1);
+    });
+    it("Should clear list when clear is called ", () => {
+        testList.add(2);
+        testList.add(5);
+        expect(testList.clear().length).toBe(0);
+
     });
 });
 
