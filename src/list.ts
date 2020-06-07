@@ -16,10 +16,14 @@ export class List<T> implements IList<T> {
         let isExists = false;
         this.list.forEach((element: T) => {
             if (typeof element === "object") {
-                isExists = JSON.stringify(element) === JSON.stringify(item) && !isExists
+                if (JSON.stringify(element) === JSON.stringify(item) && !isExists) {
+                    isExists = true;
+                }
 
             } else {
-                isExists = element === item && !isExists
+                if (element === item && !isExists) {
+                    isExists = true;
+                }
             }
         });
         return isExists;

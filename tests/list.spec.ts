@@ -22,5 +22,11 @@ describe("Typescript Generic List  ", () => {
         expect(testList.clear().length).toBe(0);
 
     });
+    it("Should return true if list contains 1",()=>{
+     testList.add(1);
+     testList.add(2);
+     testList.add(3);
+     expect(testList.contains(1)).toBeTrue();
+    });
 });
 
