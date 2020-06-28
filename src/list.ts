@@ -1,5 +1,13 @@
 import { IList } from "./IList";
 
+/**
+ * Generic List type. similar to C# IList
+ *
+ * @export
+ * @class List
+ * @implements {IList<T>}
+ * @template T
+ */
 export class List<T> implements IList<T> {
     private list: Array<T>;
     constructor() {
@@ -55,7 +63,13 @@ export class List<T> implements IList<T> {
     };
 
     findLastIndex = (predicate: (item: T) => boolean): number => {
-        throw new Error("Method not implemented.");
+        let indexTracker = -1;
+        for (let i = 0; i < this.list.length; i++ ) {
+            if (predicate(this.list[i])) {
+                indexTracker = i;
+            }
+        }
+        return indexTracker;
     }
     getRange(index: number, count: number): T[] {
         throw new Error("Method not implemented.");

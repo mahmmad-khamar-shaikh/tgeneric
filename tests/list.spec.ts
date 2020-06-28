@@ -4,13 +4,16 @@ class Heoros {
     Alias: string;
     SuperStrength: number;
 }
+
 describe("Typescript Generic List  ", () => {
     let testList: IList<number>;
     let heroList: IList<Heoros>
+    let monthList: IList<string>;
 
     beforeEach(() => {
         testList = new List<number>();
         heroList = new List<Heoros>();
+        monthList = new List<string>();
 
     });
     it("Should initialized array with no items", () => {
@@ -38,6 +41,7 @@ describe("Typescript Generic List  ", () => {
         testList.add(3);
         expect(testList.exists(ele => ele === 2)).toBeTrue();
     });
+
     it("Should return Steve Rogers if list conatin 2", () => {
 
         heroList.add({ Name: "Tony Stark", Alias: "Iron Man", SuperStrength: 8 });
@@ -46,8 +50,17 @@ describe("Typescript Generic List  ", () => {
         expect(heroList.find(hero => hero.Name.toLowerCase() === "steve rogers").Name).toBe("Steve Rogers");
     });
 
+    /** Section for findLast index */
+    it("Should return 3 if search for June in the list ", () => {
+        monthList.add("Jan");
+        monthList.add("June");
+        monthList.add("Feb");
+        monthList.add("June");
+        expect(monthList.findLastIndex(item => item === "June")).toBe(3);
+
+    });
 
 
-    
+
 });
 
