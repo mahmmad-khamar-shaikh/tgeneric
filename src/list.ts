@@ -28,22 +28,33 @@ export class List<T> implements IList<T> {
         });
         return isExists;
     };
-    exists(this: T[], predicate: (item: T) => boolean): boolean {
-        return this.filter(predicate).length > 0;
+    exists = (predicate: (item: T) => boolean): boolean => {
+        return this.list.filter(predicate).length > 0;
     }
-    find(predicate: (item: T) => boolean): T {
-        throw new Error("Method not implemented.");
+    find = (predicate: (item: T) => boolean): T => {
+        let result = this.list.filter(predicate);
+        if (result.length > 0) {
+            return result[0];
+
+        } else {
+            return <T>{};
+        }
+
     }
-    findAll(predicate: (item: T) => boolean): T[] {
-        throw new Error("Method not implemented.");
-    }
-    findIndex(predicate: (item: T) => boolean): number {
-        throw new Error("Method not implemented.");
-    }
-    findLast(predicate: (item: T) => boolean): T {
-        throw new Error("Method not implemented.");
-    }
-    findLastIndex(predicate: (item: T) => boolean): number {
+    findAll = (predicate: (item: T) => boolean): T[] => this.list.filter(predicate);
+
+    findIndex = (predicate: (item: T) => boolean): number => this.list.findIndex(predicate);
+
+    findLast = (predicate: (item: T) => boolean): T => {
+        let result = this.list.filter(predicate);
+        if (result.length > 0) {
+            return result[result.length - 1];
+        } else {
+            return <T>{};
+        }
+    };
+
+    findLastIndex = (predicate: (item: T) => boolean): number => {
         throw new Error("Method not implemented.");
     }
     getRange(index: number, count: number): T[] {
@@ -82,9 +93,8 @@ export class List<T> implements IList<T> {
     remove(item: T): boolean {
         throw new Error("Method not implemented.");
     }
-    count = (): number => {
-        return this.list.length;
-    };
+    count = (): number => this.list.length;
+
 
     toList(): T[] {
         throw new Error("Method not implemented.");
