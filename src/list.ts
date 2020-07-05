@@ -79,7 +79,7 @@ export class List<T> implements IList<T> {
     indexOf = (item: T): number => this.list.indexOf(item);
 
     insert(index: number, item: T): void {
-        
+        throw new Error("Method not implemented.");
     }
     insertRange(index: number, range: T[]): void {
         throw new Error("Method not implemented.");
