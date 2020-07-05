@@ -64,21 +64,22 @@ export class List<T> implements IList<T> {
 
     findLastIndex = (predicate: (item: T) => boolean): number => {
         let indexTracker = -1;
-        for (let i = 0; i < this.list.length; i++ ) {
+        for (let i = 0; i < this.list.length; i++) {
             if (predicate(this.list[i])) {
                 indexTracker = i;
             }
         }
         return indexTracker;
     }
-    getRange(index: number, count: number): T[] {
-        throw new Error("Method not implemented.");
+    getRange = (index: number, count: number): T[] => {
+        const endIndex = index + count;
+        return this.list.slice(index, endIndex);
     }
-    indexOf(item: T): number {
-        throw new Error("Method not implemented.");
-    }
+
+    indexOf = (item: T): number => this.list.indexOf(item);
+
     insert(index: number, item: T): void {
-        throw new Error("Method not implemented.");
+        
     }
     insertRange(index: number, range: T[]): void {
         throw new Error("Method not implemented.");

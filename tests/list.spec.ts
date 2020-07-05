@@ -59,6 +59,16 @@ describe("Typescript Generic List  ", () => {
         expect(monthList.findLastIndex(item => item === "June")).toBe(3);
 
     });
+    /** getRange */
+    it("Should Return 2nd and 3rd element from numerical list", () => {
+
+        testList.add(1);
+        testList.add(2);
+        testList.add(3);
+        testList.add(4);
+        testList.add(5);
+        expect(testList.getRange(1, 2)).toEqual([2,3]);
+    });
 
 
 
