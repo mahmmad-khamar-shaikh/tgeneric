@@ -79,10 +79,12 @@ export class List<T> implements IList<T> {
     indexOf = (item: T): number => this.list.indexOf(item);
 
     insert(index: number, item: T): void {
-        throw new Error("Method not implemented.");
+        this.list.splice(index, 0, item);
+
     }
     insertRange(index: number, range: T[]): void {
-        throw new Error("Method not implemented.");
+
+        this.list.splice(index, 0, ...range);
     }
     lastIndexOf(item: T): number {
         throw new Error("Method not implemented.");
@@ -90,7 +92,7 @@ export class List<T> implements IList<T> {
     removeAll(predicate: (item: T) => boolean): number {
         throw new Error("Method not implemented.");
     }
-    removeAtt(index: number): void {
+    removeAt(index: number): void {
         throw new Error("Method not implemented.");
     }
     removeRange(index: number, count: number): void {

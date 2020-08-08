@@ -17,7 +17,7 @@ export interface IList<T> {
     lastIndexOf(item: T): number;
     remove(item: T): boolean;
     removeAll(predicate: (item: T) => boolean): number;
-    removeAtt(index: number): void;
+    removeAt(index: number): void;
     removeRange(index: number, count: number): void;
     reverse(this: T[]): void;
     sort(this: T[]): void;

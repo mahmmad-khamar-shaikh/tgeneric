@@ -67,7 +67,18 @@ describe("Typescript Generic List  ", () => {
         testList.add(3);
         testList.add(4);
         testList.add(5);
-        expect(testList.getRange(1, 2)).toEqual([2,3]);
+        expect(testList.getRange(1, 2)).toEqual([2, 3]);
+    });
+    /** insertRange */
+    it("Should add  2 and 3 after 1", () => {
+        testList.add(1);
+        testList.add(4);
+        testList.add(5);
+        testList.insertRange(1, [2, 3,])
+        
+        expect(testList.indexOf(2)).toEqual(1);
+        expect(testList.indexOf(3)).toEqual(2);
+        expect(testList.indexOf(4)).toEqual(3);
     });
 
 
