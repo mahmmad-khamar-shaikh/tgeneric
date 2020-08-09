@@ -89,6 +89,18 @@ describe("Typescript Generic List  ", () => {
         expect(testList.toArray()).toEqual([1, 4, 5])
 
     });
+    /** removeAt */
+    it("Should remove 2 from list",()=>{
+
+        testList.add(1);
+        testList.add(2);
+        testList.add(3);
+        testList.add(4);
+        testList.add(5);
+        testList.removeAt(1);
+        expect(testList.toArray()).toEqual([1,3,4,5]);
+
+    })
 
 
 
