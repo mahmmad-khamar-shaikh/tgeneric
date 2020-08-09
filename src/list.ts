@@ -1,4 +1,5 @@
 import { IList } from "./IList";
+import { compare } from "./util";
 
 /**
  * Generic List type. similar to C# IList
@@ -195,8 +196,8 @@ export class List<T> implements IList<T> {
      * @param {number} count
      * @memberof List
      */
-    removeRange(index: number, count: number): void {
-        throw new Error("Method not implemented.");
+    removeRange = (index: number, count: number): void => {
+        this.list.splice(index, count);
     }
 
     /**
@@ -205,8 +206,8 @@ export class List<T> implements IList<T> {
      * @param {T[]} this
      * @memberof List
      */
-    reverse(this: T[]): void {
-        throw new Error("Method not implemented.");
+    reverse = (): void => {
+        this.list.reverse();
     }
 
     /**
@@ -215,8 +216,22 @@ export class List<T> implements IList<T> {
      * @param {T[]} this
      * @memberof List
      */
-    sort(this: T[]): void {
-        throw new Error("Method not implemented.");
+    sort = (): void => {
+        if (this.list.length > 1) {
+            const typeDetermine = typeof this.list[0];
+            switch (typeDetermine) {
+                case "string":
+                    this.list.sort();
+                    break;
+                case "number":
+                    this.list.sort(compare);
+                    break
+                default:
+                    throw new Error("'Sort' works with 'number' and 'string'. For sorting array of Objects, use 'orderBy' function");
+            }
+        } else {
+            throw new Error("Invalid or Insufficient items in Array");
+        }
     }
 
     /**
@@ -227,7 +242,13 @@ export class List<T> implements IList<T> {
      * @memberof List
      */
     trueForAll(predicate: (item: T) => boolean): boolean {
-        throw new Error("Method not implemented.");
+        let result = false;
+        if (this.list.length === 0) {
+            result = true
+            return result;
+        }
+        result = this.list.every(predicate);
+        return result;
     }
 
     /**
@@ -238,7 +259,14 @@ export class List<T> implements IList<T> {
      * @memberof List
      */
     remove(item: T): boolean {
-        throw new Error("Method not implemented.");
+        let result = false;
+        const index = this.list.indexOf(item);
+        if (index > -1) {
+            result = true;
+            this.list.splice(index, 1);
+
+        }
+        return result;
     }
 
     /**

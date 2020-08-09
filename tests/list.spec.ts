@@ -90,7 +90,7 @@ describe("Typescript Generic List  ", () => {
 
     });
     /** removeAt */
-    it("Should remove 2 from list",()=>{
+    it("Should remove 2 from list", () => {
 
         testList.add(1);
         testList.add(2);
@@ -98,11 +98,116 @@ describe("Typescript Generic List  ", () => {
         testList.add(4);
         testList.add(5);
         testList.removeAt(1);
-        expect(testList.toArray()).toEqual([1,3,4,5]);
+        expect(testList.toArray()).toEqual([1, 3, 4, 5]);
 
-    })
+    });
+    /** removeRange */
+    it("Should remove item from array and return length 3", () => {
 
+        testList.add(1);
+        testList.add(2);
+        testList.add(3);
+        testList.add(4);
+        testList.add(5);
 
+        testList.removeRange(2, 2);
+        expect(testList.count()).toBe(3);
+    });
+    /** remove */
+    it("Should remove 2 from list and return true", () => {
+        testList.add(1);
+        testList.add(2);
+        testList.add(3);
+        testList.add(4);
+        testList.add(5);
+        expect(testList.remove(9)).toBeFalse();
+        expect(testList.remove(2)).toBeTrue();
+    });
+    /** trueForAll */
+    it("Should return true when list is emply", () => {
+        expect(testList.trueForAll(item => item == 0)).toBeTrue();
+
+    });
+
+    it("Should return true when all items are in list is even", () => {
+        testList.add(2);
+        testList.add(4);
+        testList.add(6);
+        testList.add(8);
+        testList.add(10);
+        expect(testList.trueForAll(item => item % 2 === 0)).toBeTrue();
+
+    });
+
+    it("Should return false when not all items are in list is even", () => {
+        testList.add(2);
+        testList.add(4);
+        testList.add(6);
+        testList.add(8);
+        testList.add(9);
+        expect(testList.trueForAll(item => item % 2 === 0)).toBeFalse();
+
+    });
+
+    /** reverse */
+    it("Should reverse numeric list", () => {
+        testList.add(2);
+        testList.add(4);
+        testList.add(6);
+        testList.add(8);
+        testList.reverse();
+        expect(testList.toArray()).toEqual([8, 6, 4, 2]);
+
+    });
+    it("Should reverse strinng list", () => {
+        monthList.add("Jan");
+        monthList.add("Feb");
+        monthList.add("March");
+        monthList.add("April");
+        monthList.reverse();
+        expect(monthList.toArray()).toEqual(["April", "March", "Feb", "Jan"]);
+
+    });
+
+    /** Sort */
+
+    it("Should sort numeric list by value ", () => {
+
+        testList.add(4);
+        testList.add(2);
+        testList.add(1);
+        testList.add(3);
+        testList.sort();
+        expect(testList.toArray()).toEqual([1, 2, 3, 4]);
+
+    });
+    it("Should sort string list by value", () => {
+
+        monthList.add("Jan");
+        monthList.add("Feb");
+        monthList.add("March");
+        monthList.add("April");
+        monthList.sort();
+        expect(monthList.toArray()).toEqual(["April", "Feb", "Jan", "March"]);
+    });
+    it("Should show Invalid or insufficient items in Array Message", () => {
+
+        expect(function () { testList.sort() })
+            .toThrow(new Error("Invalid or Insufficient items in Array"));
+    });
+    it("Should show Object Error", () => {
+        heroList.add({ Name: "Tony Stark", Alias: "Iron Man", SuperStrength: 8 });
+        heroList.add({ Name: "Steve Rogers", Alias: "Captiain America ", SuperStrength: 8 });
+        heroList.add({ Name: "Bruse Banner", Alias: "Hulk", SuperStrength: 8 });
+
+        expect(function () { heroList.sort() })
+            .toThrow(new Error("'Sort' works with 'number' and 'string'. For sorting array of Objects, use 'orderBy' function"));
+    });
+    it("Shuold show invalid or insufficient error when array is blank ", () => {
+
+        expect(function () { testList.sort() })
+            .toThrow(new Error("Invalid or Insufficient items in Array"));
+    });
 
 
 });

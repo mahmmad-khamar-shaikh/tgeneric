@@ -19,8 +19,8 @@ export interface IList<T> {
     removeAll(predicate: (item: T) => boolean): void;
     removeAt(index: number): void;
     removeRange(index: number, count: number): void;
-    reverse(this: T[]): void;
-    sort(this: T[]): void;
+    reverse(): void;
+    sort(): void;
     trueForAll(predicate: (item: T) => boolean): boolean;
     toArray(): Array<T>;
 }
