@@ -4,4 +4,3 @@ export function compare<T>(ele1: T, ele2: T): number {
   if (ele2 > ele1) return -1;
   return 0;
 }
-

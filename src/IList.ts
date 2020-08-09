@@ -16,11 +16,11 @@ export interface IList<T> {
     insertRange(index: number, range: T[]): void;
     lastIndexOf(item: T): number;
     remove(item: T): boolean;
-    removeAll(predicate: (item: T) => boolean): number;
+    removeAll(predicate: (item: T) => boolean): void;
     removeAt(index: number): void;
     removeRange(index: number, count: number): void;
     reverse(this: T[]): void;
     sort(this: T[]): void;
     trueForAll(predicate: (item: T) => boolean): boolean;
-    toList(): Array<T>;
+    toArray(): Array<T>;
 }

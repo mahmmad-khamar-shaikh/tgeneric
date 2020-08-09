@@ -86,11 +86,14 @@ export class List<T> implements IList<T> {
 
         this.list.splice(index, 0, ...range);
     }
-    lastIndexOf(item: T): number {
-        throw new Error("Method not implemented.");
-    }
-    removeAll(predicate: (item: T) => boolean): number {
-        throw new Error("Method not implemented.");
+    lastIndexOf = (item: T): number => this.list.lastIndexOf(item);
+
+    removeAll(predicate: (item: T) => boolean): void {
+        const indexToBeRemoved = this.list.findIndex(predicate);
+        if (indexToBeRemoved > -1) {
+            this.list.splice(indexToBeRemoved, 1);
+            this.removeAll(predicate);
+        }
     }
     removeAt(index: number): void {
         throw new Error("Method not implemented.");
@@ -113,9 +116,7 @@ export class List<T> implements IList<T> {
     count = (): number => this.list.length;
 
 
-    toList(): T[] {
-        throw new Error("Method not implemented.");
-    }
+    toArray = (): T[] => this.list
 
     add(item: T): void {
         this.list.push(item);

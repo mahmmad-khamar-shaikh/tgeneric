@@ -75,11 +75,21 @@ describe("Typescript Generic List  ", () => {
         testList.add(4);
         testList.add(5);
         testList.insertRange(1, [2, 3,])
-        
-        expect(testList.indexOf(2)).toEqual(1);
-        expect(testList.indexOf(3)).toEqual(2);
-        expect(testList.indexOf(4)).toEqual(3);
+        expect(testList.toArray()).toEqual([1, 2, 3, 4, 5])
     });
+    /** removeAll */
+    it("should remove all number more than 5", () => {
+        testList.add(1);
+        testList.add(4);
+        testList.add(5);
+        testList.add(6);
+        testList.add(7);
+        testList.add(8);
+        testList.removeAll(item => item > 5)
+        expect(testList.toArray()).toEqual([1, 4, 5])
+
+    });
+
 
 
 
