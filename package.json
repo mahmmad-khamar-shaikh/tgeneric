@@ -1,7 +1,7 @@
 {
-    "name": "tzlib",
-    "version": "1.0.3",
-    "description": "Extension methods to premitive types",
+    "name": "typescript-generics",
+    "version": "1.0.0",
+    "description": "Generics in Typescript",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "scripts": {
@@ -11,19 +11,20 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/mahmmad-khamar-shaikh/Tlib.git"
+        "url": "git+https://github.com/mahmmad-khamar-shaikh/tgeneric.git"
     },
     "author": "Mahmmadkhamar shaikh",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/mahmmad-khamar-shaikh/Tlib/issues"
+        "url": "https://github.com/mahmmad-khamar-shaikh/tgeneric/issues"
     },
-    "homepage": "https://github.com/mahmmad-khamar-shaikh/Tlib#readme",
+    "homepage": "https://github.com/mahmmad-khamar-shaikh/tgeneric#readme",
     "keywords": [
         "javascript",
         "Typescript ",
         "Array",
         "Extension"
+
     ],
     "devDependencies": {
         "@types/jasmine": "^3.5.10",

@@ -34,10 +34,8 @@ export class List<T> implements IList<T> {
      *
      * @memberof List
      */
-    clear = (): T[] => {
-        this.list.splice(0, this.list.length);
-        return this.list;
-    };
+    clear = (): T[] => this.list.splice(0, this.list.length);
+
 
     /**
      *
@@ -48,14 +46,9 @@ export class List<T> implements IList<T> {
         let isExists = false;
         this.list.forEach((element: T) => {
             if (typeof element === "object") {
-                if (JSON.stringify(element) === JSON.stringify(item) && !isExists) {
-                    isExists = true;
-                }
-
+                isExists = JSON.stringify(element) === JSON.stringify(item) && !isExists;
             } else {
-                if (element === item && !isExists) {
-                    isExists = true;
-                }
+                isExists = element === item && !isExists;
             }
         });
         return isExists;
@@ -66,22 +59,19 @@ export class List<T> implements IList<T> {
      *
      * @memberof List
      */
-    exists = (predicate: (item: T) => boolean): boolean => {
-        return this.list.filter(predicate).length > 0;
-    }
-    find = (predicate: (item: T) => boolean): T => {
-        let result = this.list.filter(predicate);
-        if (result.length > 0) {
-            return result[0];
-
-        } else {
-            return <T>{};
-        }
-
-    }
+    exists = (predicate: (item: T) => boolean): boolean => this.list.filter(predicate).length > 0;
 
     /**
      *
+     * @memberof List
+     */
+    find = (predicate: (item: T) => boolean): T => {
+
+        const result = this.list.filter(predicate);
+        return result.length > 0 ? result[0] : <T>{};
+    }
+
+    /**
      *
      * @memberof List
      */
@@ -89,24 +79,17 @@ export class List<T> implements IList<T> {
 
     /**
      *
-     *
      * @memberof List
      */
     findIndex = (predicate: (item: T) => boolean): number => this.list.findIndex(predicate);
 
-
     /**
-     *
      *
      * @memberof List
      */
     findLast = (predicate: (item: T) => boolean): T => {
-        let result = this.list.filter(predicate);
-        if (result.length > 0) {
-            return result[result.length - 1];
-        } else {
-            return <T>{};
-        }
+        const result = this.list.filter(predicate);
+        return result.length > 0 ? result[result.length - 1] : <T>{}
     };
 
     /**
