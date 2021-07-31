@@ -7,7 +7,7 @@
 #### **clear**
 ___
 > Returns empty list
-```javscript
+```javascript
 function clearDemo(){
 let numList = new List<number>();
  numList.add(3);
@@ -21,7 +21,7 @@ let numList = new List<number>();
 #### **contains**
 ___
 > checks if elements exist in list
-```javscript
+```javascript
 function containDemo(){
 let numList = new List<number>();
  numList.add(3);
@@ -35,7 +35,7 @@ let numList = new List<number>();
 #### **exist**
 ___
 > Returns true if element satisfies predicate
-```javscript
+```javascript
 function existDemo(){
 let numList = new List<number>();
  numList.add(3);
